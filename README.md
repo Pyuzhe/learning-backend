@@ -1,10 +1,66 @@
 # 学习 Agent 后端
+## Day1 环境与项目初始化学习记录
+日期：2026-07-06
+今天主要完成了 Python 后端项目的基础环境搭建，并创建了第一个后端项目目录。
 
-基于 FastAPI 的 AI 学习助手后端系统。
+### 今日完成内容
+1. 创建 `learning-backend` 项目目录。
+2. 使用 VS Code 打开项目。
+3. 创建 Python 虚拟环境 `.venv`。
+4. 了解虚拟环境的作用：为当前项目隔离依赖，避免不同项目之间包版本冲突。
+5. 创建基础项目文件，包括 `main.py`、`README.md` 等。
+6. 初始化 Git 仓库，项目中生成 `.git` 目录。
+7. 完成算法题「两数之和」。
 
-## 快速启动
+### 核心理解
+`.venv` 是当前项目独立的 Python 环境，后续安装的依赖会放在虚拟环境中，而不是直接污染全局 Python 环境。
+Git 仓库通过 `.git` 目录保存项目版本历史。只要项目中有 `.git`，说明当前目录已经被 Git 管理。
 
-python -m venv .venv
-.venv\Scripts\activate
+### 今日收获
+今天完成了后端学习的第一步：把项目目录、Python 环境、编辑器和 Git 仓库准备好。后续可以在这个项目基础上继续安装依赖、编写接口和提交代码。
+
+
+## Day2 依赖管理与 FastAPI 启动学习记录
+日期：2026-07-07
+今天主要学习了 Python 项目的依赖管理，并成功启动了第一个 FastAPI 应用。
+
+### 今日完成内容
+
+1. 激活项目虚拟环境 `.venv`。
+2. 使用 `pip` 安装 `fastapi` 和 `uvicorn`。
+3. 使用 `pip freeze > requirements.txt` 生成项目依赖清单。
+4. 理解 `requirements.txt` 的作用：记录项目依赖，方便别人复现运行环境。
+5. 使用 `uvicorn main:app --reload` 启动 FastAPI 项目。
+6. 访问 `http://127.0.0.1:8000/docs`，成功打开 Swagger 接口文档页面。
+7. 确认 `/health` 接口已经出现在文档中。
+8. 完成一次 Git 提交，保存当前项目状态。
+
+### 核心理解
+`pip` 是 Python 的包管理工具，用来安装第三方库。
+
+`requirements.txt` 是项目依赖清单，别人拿到项目后可以通过下面命令安装同样的依赖：
+```cmd
 pip install -r requirements.txt
-uvicorn main:app --reload
+
+
+## Day3 Git 学习记录
+日期：2026-07-08
+今天主要复习并练习了 Git 的本地版本管理流程，包括 `git status`、`git diff`、`git add`、`git commit` 和 `git log --oneline`。
+
+### 今日完成内容
+1. 使用 `git status` 查看当前项目文件状态，判断文件是否被修改、是否进入暂存区、是否已经提交。
+2. 使用 `git diff` 查看本次修改的具体内容，确认提交前知道自己改了什么。
+3. 使用 `git add` 将修改加入暂存区。
+4. 使用 `git commit` 将暂存区内容保存为一次本地提交。
+5. 使用 `git log --oneline` 查看提交历史，确认提交记录是否生成。
+6. 理解了工作区、暂存区、本地仓库之间的关系。
+7. 了解 `.gitignore` 的作用，知道 `.venv/`、`__pycache__/`、`.env` 等文件通常不应该提交到 Git 仓库。
+
+### 核心理解
+Git 的一次基本提交流程是：
+```cmd
+git status
+git diff
+git add README.md
+git commit -m "docs: add day3 git learning notes"
+git log --oneline
