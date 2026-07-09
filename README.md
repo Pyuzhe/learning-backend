@@ -25,7 +25,6 @@ Git 仓库通过 `.git` 目录保存项目版本历史。只要项目中有 `.gi
 今天主要学习了 Python 项目的依赖管理，并成功启动了第一个 FastAPI 应用。
 
 ### 今日完成内容
-
 1. 激活项目虚拟环境 `.venv`。
 2. 使用 `pip` 安装 `fastapi` 和 `uvicorn`。
 3. 使用 `pip freeze > requirements.txt` 生成项目依赖清单。
@@ -37,7 +36,6 @@ Git 仓库通过 `.git` 目录保存项目版本历史。只要项目中有 `.gi
 
 ### 核心理解
 `pip` 是 Python 的包管理工具，用来安装第三方库。
-
 `requirements.txt` 是项目依赖清单，别人拿到项目后可以通过下面命令安装同样的依赖：
 ```cmd
 pip install -r requirements.txt
@@ -64,3 +62,31 @@ git diff
 git add README.md
 git commit -m "docs: add day3 git learning notes"
 git log --oneline
+
+
+## Day4 学习总结：HTTP 与 Apifox 调试
+日期：2026-07-09
+今天学习了 HTTP 请求与响应的基本流程，并使用 Apifox 调试了本地 FastAPI 接口。
+
+### 完成内容
+- 理解 HTTP 请求由请求方法、URL、请求头、请求体组成。
+- 理解 HTTP 响应由状态码、响应头、响应体组成。
+- 区分了 `GET` 和 `POST`：
+  - `GET` 通常用于查询数据。
+  - `POST` 通常用于提交或创建数据。
+- 认识了常见状态码：
+  - `200`：请求成功
+  - `201`：创建成功
+  - `400`：请求参数错误
+  - `404`：资源不存在
+  - `500`：服务器内部错误
+
+  ### 接口调试
+使用 Apifox 请求本地接口：
+请求方法：GET
+请求地址：http://127.0.0.1:8000/health
+状态码：200
+响应时间：28ms
+响应大小：140B
+响应内容：{"status": "ok"}
+结论：后端服务正常运行，Apifox 可以成功调用本地 FastAPI 接口。
