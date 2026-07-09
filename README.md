@@ -39,6 +39,7 @@ Git 仓库通过 `.git` 目录保存项目版本历史。只要项目中有 `.gi
 `requirements.txt` 是项目依赖清单，别人拿到项目后可以通过下面命令安装同样的依赖：
 ```cmd
 pip install -r requirements.txt
+```
 
 
 ## Day3 Git 学习记录
@@ -62,6 +63,7 @@ git diff
 git add README.md
 git commit -m "docs: add day3 git learning notes"
 git log --oneline
+```
 
 
 ## Day4 学习总结：HTTP 与 Apifox 调试
@@ -81,7 +83,7 @@ git log --oneline
   - `404`：资源不存在
   - `500`：服务器内部错误
 
-  ### 接口调试
+### 接口调试
 使用 Apifox 请求本地接口：
 请求方法：GET
 请求地址：http://127.0.0.1:8000/health
