@@ -14,3 +14,15 @@ def health():
 @app.get("/ping")
 def ping():
     return {"message":"pong"}
+
+@app.get("/hello/{name}")
+def hello(name: str):
+    return {"message": f"hello,{name}"}
+
+
+@app.get("/items")
+def get_items(limit: int=10):
+    return {
+        "limit": limit,
+        "items":[f"item-{i}" for i in range(1,limit+1)]
+    }
