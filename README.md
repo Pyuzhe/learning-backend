@@ -154,8 +154,8 @@ GET http://127.0.0.1:8000/ping
 在Apifox 中完成接口调试，并保存请求
 
 今日接口：
-- `POST /todos`
-- `GET /todos`
+`POST /todos`
+`GET /todos`
 
 今日收获：
 我理解了 FastAPI 如何通过 `BaseModel` 接收和校验请求体数据，也完成了第一个包含多个关联接口的小型 Todo 功能。当前数据保存在内存中，服务重启后会清空，后续会学习使用数据库保存数据
