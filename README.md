@@ -137,3 +137,25 @@ GET http://127.0.0.1:8000/ping
 3. 在接口调试方面，我使用 Apifox 配置本地前置 URL，并测试了 `/health`、`/ping`、`/hello/Tom` 和 `/items?limit=3` 等接口。
 4. 在 Git 方面，我掌握了 `status`、`add`、`commit`、`push`、`pull` 等常用命令，也处理过一次 README 合并冲突。
 5. 算法方面，本周练习了数组和双指针相关题目，包括两数之和、移除元素、合并两个有序数组、有序数组的平方、移动零和删除有序数组中的重复项。
+
+
+## Day8 学习总结：内存版 Todo API
+日期：2026-07-13
+今天开始开发内存版 Todo API，完成了创建 Todo 和获取 Todo 列表两个接口
+
+完成内容：
+使用 `POST /todos` 创建待办事项
+使用 `GET /todos` 获取全部待办事项
+使用 Python 列表 `todos = []` 临时保存数据
+使用 Pydantic 的 `BaseModel` 定义 `TodoCreate` 请求模型
+学习请求体（Request Body），通过 JSON 传入 `title`
+使用 `201 Created` 表示创建成功
+测试空请求体，收到 `422 Unprocessable Entity`，确认 `title` 字段校验生效
+在Apifox 中完成接口调试，并保存请求
+
+今日接口：
+- `POST /todos`
+- `GET /todos`
+
+今日收获：
+我理解了 FastAPI 如何通过 `BaseModel` 接收和校验请求体数据，也完成了第一个包含多个关联接口的小型 Todo 功能。当前数据保存在内存中，服务重启后会清空，后续会学习使用数据库保存数据

@@ -1,5 +1,6 @@
 # 1.从fastapi包里导入FastAPI，用于构建FastAPI应用程序
-from fastapi import FastAPI
+from fastapi import FastAPI,status
+from pydantic import BaseModel
 
 # 2.初始化FastAPI应用程序实例
 app = FastAPI(title="学习 Agent 后端")
@@ -26,3 +27,25 @@ def get_items(limit: int=10):
         "limit": limit,
         "items":[f"item-{i}" for i in range(1,limit+1)]
     }
+
+
+# 4.创建 Todo 和查看 Todo 列表
+todos=[]
+
+class TodoCreate(BaseModel):
+    title: str
+
+
+@app.post("/todos", status_code=status.HTTP_201_CREATED)
+def create_todo(todo: TodoCreate):
+    new_todo = {
+        "id": len(todos) + 1,
+        "title": todo.title
+    }
+    todos.append(new_todo)
+    return new_todo
+
+
+@app.get("/todos")
+def get_todos():
+    return todos
